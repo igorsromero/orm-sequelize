@@ -94,6 +94,41 @@ class PessoaController {
         }
     };
 
+    static async atualizaMatricula(request, response) {
+        const { estudanteId, matriculaId } = request.params;
+        const novasInfos = request.body;
+        try {
+            await database.Matriculas.update(novasInfos,
+                {
+                    where: {
+                        id: Number(matriculaId),
+                        estudante_id: Number(estudanteId)
+                    }
+                });
+
+            const MatriculaAtualizada = await database.Matriculas.findOne(
+                {
+                    where: {
+                        id: Number(matriculaId)
+                    }
+                });
+            return response.status(200).json(MatriculaAtualizada);
+        } catch (error) {
+            return response.status(500).json(error.message);
+        }
+    };
+
+    static async apagaMatricula(request, response) {
+        const { estudanteId, matriculaId } = request.params;
+        try {
+            await database.Matriculas.destroy({ where: { id: Number(matriculaId), estudante_id: Number(estudanteId) } });
+            return response.status(200).json({ mensagem: `id ${matriculaId} deletado` });
+        } catch (error) {
+            console.log(error);
+            return response.status(500).json(error.message);
+        }
+    }
+
 }
 
 module.exports = PessoaController;
