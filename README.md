@@ -29,7 +29,7 @@ npx sequelize-cli db:migrate:undo
 Desfazer uma migration especifica:
 ```
 db:migrate:undo --name [data-hora]-create-[nome-da-tabela].js
-`` 
+```
 
 Desfazer o ultimo seed feito:
 ```
