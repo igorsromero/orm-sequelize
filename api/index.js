@@ -1,16 +1,12 @@
 const express = require("express");
+const routes = require("./routes");
 const app = express();
-
-app.use(express.json());
 
 const port = 3000;
 
-app.get("/teste", (request, response) => {
-    response.status(200);
-    response.send({ mensagem: "Boas Vindas" });
-});
+routes(app);
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("API RODANDO")
 });
 
