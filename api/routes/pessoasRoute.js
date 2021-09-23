@@ -11,6 +11,10 @@ router.get("/pessoas/:id", PessoaController.pegarUmaPessoa);
 
 router.get("/pessoas/:estudanteId/matricula", PessoaController.pegaMatriculas);
 
+router.get("/pessoas/matricula/:turmaId/confirmadas", PessoaController.pegaMatriculasPorTurma);
+
+router.get("/pessoas/matricula/lotada", PessoaController.pegaTurmasLotadas);
+
 router.post("/pessoas", PessoaController.criarPessoa);
 
 router.put("/pessoas/:id", PessoaController.atualizaPessoa);
