@@ -9,7 +9,26 @@
 			"name": "Pessoas",
 			"item": [
 				{
-					"name": "Listar Pessoas",
+					"name": "Listar Pessoas Ativas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/pessoas/ativas",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								"ativas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todas as Pessoas",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -51,14 +70,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/pessoas/4",
+							"raw": "localhost:3000/pessoas/1",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"pessoas",
-								"4"
+								"1"
 							]
 						}
 					},
@@ -114,6 +133,58 @@
 							"port": "3000",
 							"path": [
 								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restaura Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/pessoas/:id/restaura",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								":id",
+								"restaura"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancela Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/pessoas/:estudanteId/cancela",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								":estudanteId",
+								"cancela"
+							],
+							"variable": [
+								{
+									"key": "estudanteId",
+									"value": "3"
+								}
 							]
 						}
 					},
@@ -272,8 +343,132 @@
 								},
 								{
 									"key": "matriculaId",
-									"value": "5"
+									"value": "7"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Matriculas de Estudante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/pessoas/:estudanteId/matricula",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								":estudanteId",
+								"matricula"
+							],
+							"variable": [
+								{
+									"key": "estudanteId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Matriculas por turma",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/pessoas/matricula/:turmaId/confirmadas",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								"matricula",
+								":turmaId",
+								"confirmadas"
+							],
+							"variable": [
+								{
+									"key": "turmaId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Turmas",
+			"item": [
+				{
+					"name": "Listar Todas as Turmas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/turmas",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"turmas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Turmas Entre Datas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/turmas?data_inicial=2020-02-02&data_final=2021-09-23",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"turmas"
+							],
+							"query": [
+								{
+									"key": "data_inicial",
+									"value": "2020-02-02"
+								},
+								{
+									"key": "data_final",
+									"value": "2021-09-23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Turmas Lotadas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/pessoas/matricula/lotada",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								"matricula",
+								"lotada"
 							]
 						}
 					},
