@@ -15,6 +15,8 @@ router.get("/pessoas/matricula/:turmaId/confirmadas", PessoaController.pegaMatri
 
 router.get("/pessoas/matricula/lotada", PessoaController.pegaTurmasLotadas);
 
+router.post("/pessoas/:estudanteId/cancela", PessoaController.cancelaPessoa);
+
 router.post("/pessoas", PessoaController.criarPessoa);
 
 router.put("/pessoas/:id", PessoaController.atualizaPessoa);
